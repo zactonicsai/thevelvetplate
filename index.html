@@ -166,14 +166,21 @@
 
   <!-- ============ CHEF ============ -->
   <section id="chef" class="bg-bark/50 border-y border-copper/15">
-    <div class="max-w-6xl mx-auto px-4 py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center">
-      <!-- replace chef.jpg -->
-      <div class="picbox rounded-[2rem] aspect-[4/5] ring-1 ring-copper/30" data-pic="images/chef.jpg" data-label="Chef photo"></div>
+    <!-- Chef content (name, bio, photo) lives in the CHEF object at the top of app.js.
+         replace chef.jpg: set CHEF.photo to a local file (images/chef.png) or any public PNG/JPG link. -->
+    <div class="max-w-6xl mx-auto px-4 py-20 md:py-28 grid md:grid-cols-[5fr_7fr] gap-12 items-start">
+      <div class="md:sticky md:top-24">
+        <div id="chef-photo" class="picbox rounded-[2rem] aspect-[4/5] ring-1 ring-copper/30" data-label="Chef photo"></div>
+        <p id="chef-caption" class="mt-3 text-xs text-cream/45 text-center"></p>
+      </div>
       <div>
-        <p class="text-copper uppercase tracking-[.3em] text-xs mb-3">Pitmaster</p>
-        <h2 class="font-display text-4xl md:text-5xl font-semibold">Chef Marcus Hale</h2>
-        <p class="mt-6 text-lg text-cream/80 leading-relaxed">Marcus learned fire in his grandfather's backyard off Pulaski Pike and finished his training on the line in white-tablecloth kitchens. The Velvet Plate is where those two worlds meet: slow Alabama smoke, plated like it matters.</p>
-        <blockquote class="mt-8 border-l-2 border-ember pl-5 font-display italic text-xl text-honey">"Every plate should come back clean."</blockquote>
+        <p id="chef-title" class="text-copper uppercase tracking-[.3em] text-xs mb-3"></p>
+        <h2 id="chef-name" class="font-display text-4xl md:text-5xl font-semibold"></h2>
+        <p id="chef-hometown" class="mt-2 text-honey font-display italic text-lg"></p>
+        <ul id="chef-facts" class="mt-6 grid grid-cols-3 gap-3"></ul>
+        <div id="chef-bio" class="mt-8 space-y-5 text-lg text-cream/80 leading-relaxed"></div>
+        <div id="chef-family" class="mt-8"></div>
+        <blockquote id="chef-quote" class="mt-8 border-l-2 border-ember pl-5 font-display italic text-2xl text-honey"></blockquote>
       </div>
     </div>
   </section>
@@ -254,13 +261,16 @@
     <div class="max-w-6xl mx-auto px-4 py-12 grid sm:grid-cols-3 gap-8 text-sm text-cream/60">
       <div>
         <p class="font-display text-xl text-cream">The Velvet Plate</p>
-        <p class="mt-1">Huntsville, Alabama</p>
+        <p class="mt-1">---/p>
       </div>
       <div>
-        <p><a href="tel:+12565550142" class="hover:text-honey">(256) 555-0142</a></p>
+        <p><a href="tel:+12565550142" class="hover:text-honey">---</a></p>
         <p class="mt-1"><a href="#" class="hover:text-honey">@thevelvetplate</a></p>
       </div>
-      <p class="sm:text-right">Menu and stops are sample data.</p>
+      <div class="sm:text-right">
+        <p>Menu and stops are sample data.</p>
+        <p id="photo-credit" class="mt-1 text-xs text-cream/40">Sample food photos: Wikimedia Commons.</p>
+      </div>
     </div>
   </footer>
 

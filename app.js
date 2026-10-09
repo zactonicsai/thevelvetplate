@@ -14,30 +14,63 @@ const DEMO = CONFIG.mode === 'demo';
 
 /* ---------------------------------------------------------------
  * MENU — sample BBQ favorites. Prices in cents.
- * image: path under images/. A missing file shows the picture box.
+ * image: EITHER a local file   'images/lamb-chop.png'
+ *        OR any public link    'https://example.com/photos/lamb-chop.png'
+ * Current links are sample photos from Wikimedia Commons (swap for your own).
+ * A broken or missing image falls back to the tinted "photo" frame.
  * ------------------------------------------------------------- */
 const MENU = [
   // Plates
-  { id: 'velvet-brisket-plate', name: 'Velvet Brisket Plate', description: 'Sliced oak-smoked brisket, pickles, onion, white bread.', priceCents: 1800, category: 'Plates', image: 'images/velvet-brisket-plate.jpg', featured: true },
-  { id: 'bark-bone-ribs', name: 'Bark & Bone Ribs', description: 'Glazed St. Louis ribs, half rack.', priceCents: 2200, category: 'Plates', image: 'images/bark-bone-ribs.jpg', featured: true },
-  { id: 'pulled-pork-plate', name: 'Pulled Pork Plate', description: 'Shoulder, vinegar pepper sauce on the side.', priceCents: 1500, category: 'Plates', image: 'images/pulled-pork-plate.jpg' },
-  { id: 'lamb-chop', name: 'Lamb Chop', description: 'Two smoked lamb chops, rosemary salt, charred scallion.', priceCents: 2600, category: 'Plates', image: 'images/lamb-chop.jpg', featured: true },
-  { id: 'hot-link-plate', name: 'Hot Link Plate', description: 'Beef hot links, mustard slaw.', priceCents: 1400, category: 'Plates', image: 'images/hot-link-plate.jpg' },
-  { id: 'smoked-chicken', name: 'Smoked Chicken Quarter', description: 'Dry-rubbed, skin on.', priceCents: 1300, category: 'Plates', image: 'images/smoked-chicken.jpg' },
+  { id: 'velvet-brisket-plate', name: 'Velvet Brisket Plate', description: 'Sliced oak-smoked brisket, pickles, onion, white bread.', priceCents: 1800, category: 'Plates', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Brisketphoto.jpg?width=800', featured: true },
+  { id: 'bark-bone-ribs', name: 'Bark & Bone Ribs', description: 'Glazed St. Louis ribs, half rack.', priceCents: 2200, category: 'Plates', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Spareribs_20160506_182617113.jpg?width=800', featured: true },
+  { id: 'pulled-pork-plate', name: 'Pulled Pork Plate', description: 'Shoulder, vinegar pepper sauce on the side.', priceCents: 1500, category: 'Plates', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Pulled_pork,_baked_beans_and_mac_%26_cheese_from_Peg_Leg_Porker_in_Nashville,_TN.jpg?width=800' },
+  { id: 'lamb-chop', name: 'Lamb Chop', description: 'Two smoked lamb chops, rosemary salt, charred scallion.', priceCents: 2600, category: 'Plates', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Lamb_chops_2014-03-06_12-39.jpg?width=800', featured: true },
+  { id: 'hot-link-plate', name: 'Hot Link Plate', description: 'Beef hot links, mustard slaw.', priceCents: 1400, category: 'Plates', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Hot_chorizo_links.jpg?width=800' },
+  { id: 'smoked-chicken', name: 'Smoked Chicken Quarter', description: 'Dry-rubbed, skin on.', priceCents: 1300, category: 'Plates', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Chicken_BBQ.jpg?width=800' },
   // Sandwiches
-  { id: 'brisket-sandwich', name: 'Brisket Sandwich', description: 'Chopped brisket, pickles, house sauce.', priceCents: 1400, category: 'Sandwiches', image: 'images/brisket-sandwich.jpg' },
-  { id: 'pulled-pork-sandwich', name: 'Pulled Pork Sandwich', description: 'Shoulder, slaw.', priceCents: 1200, category: 'Sandwiches', image: 'images/pulled-pork-sandwich.jpg' },
+  { id: 'brisket-sandwich', name: 'Brisket Sandwich', description: 'Chopped brisket, pickles, house sauce.', priceCents: 1400, category: 'Sandwiches', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Brisket_(3849368711).jpg?width=800' },
+  { id: 'pulled-pork-sandwich', name: 'Pulled Pork Sandwich', description: 'Shoulder, slaw.', priceCents: 1200, category: 'Sandwiches', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Pulled_pork_sandwich.jpg?width=800' },
   // Sides
-  { id: 'mac-cheese', name: 'Mac & Cheese', description: 'Smoked gouda.', priceCents: 500, category: 'Sides', image: 'images/mac-cheese.jpg' },
-  { id: 'collard-greens', name: 'Collard Greens', description: 'Potlikker, pepper vinegar.', priceCents: 450, category: 'Sides', image: 'images/collard-greens.jpg' },
-  { id: 'baked-beans', name: 'Baked Beans', description: 'Molasses, burnt ends bits.', priceCents: 450, category: 'Sides', image: 'images/baked-beans.jpg' },
-  { id: 'potato-salad', name: 'Potato Salad', description: 'Mustard, egg.', priceCents: 400, category: 'Sides', image: 'images/potato-salad.jpg' },
-  { id: 'cornbread', name: 'Cornbread', description: 'Honey butter.', priceCents: 300, category: 'Sides', image: 'images/cornbread.jpg' },
+  { id: 'mac-cheese', name: 'Mac & Cheese', description: 'Smoked gouda.', priceCents: 500, category: 'Sides', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Original_Mac_n_Cheese_.jpg?width=800' },
+  { id: 'collard-greens', name: 'Collard Greens', description: 'Potlikker, pepper vinegar.', priceCents: 450, category: 'Sides', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Collard-Greens-Bundle.jpg?width=800' },
+  { id: 'baked-beans', name: 'Baked Beans', description: 'Molasses, burnt ends bits.', priceCents: 450, category: 'Sides', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Baked_beans_in_tomato_sauce.jpg?width=800' },
+  { id: 'potato-salad', name: 'Potato Salad', description: 'Mustard, egg.', priceCents: 400, category: 'Sides', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Potato_salad_(1).jpg?width=800' },
+  { id: 'cornbread', name: 'Cornbread', description: 'Honey butter.', priceCents: 300, category: 'Sides', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Skillet_cornbread_(cropped).jpg?width=800' },
   // Drinks
-  { id: 'sweet-tea', name: 'Sweet Tea', description: 'Brewed daily.', priceCents: 250, category: 'Drinks', image: 'images/sweet-tea.jpg' },
-  { id: 'unsweet-tea', name: 'Unsweet Tea', description: 'Brewed daily.', priceCents: 250, category: 'Drinks', image: 'images/unsweet-tea.jpg' },
-  { id: 'house-lemonade', name: 'House Lemonade', description: 'Fresh squeezed.', priceCents: 300, category: 'Drinks', image: 'images/house-lemonade.jpg' },
+  { id: 'sweet-tea', name: 'Sweet Tea', description: 'Brewed daily.', priceCents: 250, category: 'Drinks', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Iced_Tea_from_flickr.jpg?width=800' },
+  { id: 'unsweet-tea', name: 'Unsweet Tea', description: 'Brewed daily.', priceCents: 250, category: 'Drinks', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Iced_Tea_from_flickr.jpg?width=800' },
+  { id: 'house-lemonade', name: 'House Lemonade', description: 'Fresh squeezed.', priceCents: 300, category: 'Drinks', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Lemonade_-_27682817724.jpg?width=800' },
 ];
+
+/* ---------------------------------------------------------------
+ * CHEF — owner / chef section.
+ * photo: EITHER a local file   'images/chef.png'   (drop the file in images/)
+ *        OR any public link    'https://example.com/thomas-smith.png'
+ * Leave photo empty ('') to show the "Chef photo" frame.
+ * ------------------------------------------------------------- */
+const CHEF = {
+  name: 'Thomas Smith IV',
+  title: 'Owner & Chef',
+  hometown: 'Louisville, KY — Derby City',
+  photo: 'images/chef.png',
+  photoCaption: '',
+  facts: [
+    { value: '7', label: 'Age he started cooking' },
+    { value: '15+', label: 'Years in kitchens' },
+    { value: 'KY', label: 'Derby City roots' },
+  ],
+  bio: [
+    "Hey everyone! I'm Thomas Smith IV, a 31-year-old entrepreneur from Louisville, KY, also known as Derby City. My family has always been big on starting businesses, and I've been around it since I was a kid.",
+    "I started learning how to cook when I was just 7 years old, hanging out in the kitchen with my grandma and mom. At 15, I got into selling food at parks, which really got me interested in cooking. Over the past 15 years, I've gone from working at Sonic drive-ins to leading multi-million dollar restaurants, focusing on solving problems and making customers happy.",
+    "I have picked up a lot from my grandma Norma, my mom, Lisa, and my dad, Thomas III. They've taught me a ton about cooking. Now, as the owner of The Velvet Plate, I'm excited to welcome everyone to come try our delicious Southern food and experience some real Southern Elegance!",
+  ],
+  family: [
+    { name: 'Grandma Norma', role: 'First teacher' },
+    { name: 'Mom, Lisa', role: 'Kitchen partner' },
+    { name: 'Dad, Thomas III', role: 'Business sense' },
+  ],
+  quote: 'Come try our delicious Southern food and experience some real Southern Elegance!',
+};
 
 /* ---------------------------------------------------------------
  * STOPS — this week's Huntsville stops (sample).
@@ -55,7 +88,7 @@ const MAP_CENTER = [-86.5861, 34.7304]; // lng, lat
 const MAP_ZOOM = 12;
 const CATEGORIES = ['All', 'Plates', 'Sandwiches', 'Sides', 'Drinks'];
 const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-const KEYS = { cart: 'velvet-plate-cart', stop: 'velvet-plate-stop', demoOrders: 'velvet-plate-demo-orders' };
+const KEYS = { cart: 'velvet-plate-cart', stop: 'velvet-plate-stop', demoOrders: 'velvet-plate-demo-orders', photos: 'velvet-plate-photos' };
 
 const $ = (sel) => document.querySelector(sel);
 const money = (c) => '$' + (c / 100).toFixed(2);
@@ -148,16 +181,166 @@ function notice(msg, kind = 'info') {
 }
 
 /* ---------- picture boxes ---------- */
-function hydratePic(box, src, label = 'photo') {
+// Demo only: photos swapped in the browser (URL or uploaded PNG/JPG) are kept here.
+const photoOverrides = DEMO ? store.get(KEYS.photos, {}) : {};
+function photoFor(key, configured) { return photoOverrides[key] || configured || ''; }
+
+// box: .picbox element; key: 'chef' or a menu item id (used by the demo photo editor)
+function hydratePic(box, src, label = 'photo', key = '') {
   box.innerHTML = `<span class="pic-label">${esc(label)}</span>`;
-  if (!src) return;
-  const img = new Image();
-  img.alt = '';
-  img.loading = 'lazy';
-  img.onerror = () => img.remove(); // keep the tinted frame
-  img.src = src;
-  box.appendChild(img);
+  if (key) box.dataset.photoKey = key;
+  if (src) {
+    const img = new Image();
+    img.alt = '';
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.referrerPolicy = 'no-referrer';
+    img.onerror = () => img.remove(); // broken link or missing file: keep the tinted frame
+    img.src = src;
+    box.appendChild(img);
+  }
+  if (DEMO && key) {
+    box.insertAdjacentHTML('beforeend',
+      `<button type="button" data-edit-photo="${esc(key)}" class="absolute bottom-3 right-3 z-10 rounded-full bg-char/80 hover:bg-ember text-cream text-xs px-3 py-1.5 backdrop-blur border border-cream/20 transition">${src ? 'Change photo' : 'Add photo'}</button>`);
+  }
 }
+
+/* ---------- chef ---------- */
+function renderChef() {
+  hydratePic($('#chef-photo'), photoFor('chef', CHEF.photo), 'Chef photo', 'chef');
+  $('#chef-caption').textContent = CHEF.photoCaption || '';
+  $('#chef-title').textContent = CHEF.title;
+  $('#chef-name').textContent = CHEF.name;
+  $('#chef-hometown').textContent = CHEF.hometown;
+  $('#chef-facts').innerHTML = (CHEF.facts || []).map((f) => `
+    <li class="rounded-2xl bg-char/50 border border-copper/25 px-3 py-4 text-center">
+      <p class="font-display text-3xl font-semibold text-honey">${esc(f.value)}</p>
+      <p class="mt-1 text-[11px] uppercase tracking-widest text-cream/55">${esc(f.label)}</p>
+    </li>`).join('');
+  $('#chef-bio').innerHTML = (CHEF.bio || []).map((p, i) =>
+    `<p class="${i === 0 ? 'text-xl text-cream' : ''}">${esc(p)}</p>`).join('');
+  $('#chef-family').innerHTML = (CHEF.family || []).length ? `
+    <p class="text-xs uppercase tracking-[.3em] text-copper mb-3">Taught by family</p>
+    <ul class="flex flex-wrap gap-2">${CHEF.family.map((f) => `
+      <li class="rounded-full border border-copper/35 px-4 py-2 text-sm"><span class="text-cream">${esc(f.name)}</span>
+      <span class="text-cream/45"> · ${esc(f.role)}</span></li>`).join('')}</ul>` : '';
+  $('#chef-quote').textContent = CHEF.quote ? `“${CHEF.quote}”` : '';
+  $('#chef-quote').classList.toggle('hidden', !CHEF.quote);
+}
+
+/* ---------- demo photo editor (paste a link or upload a PNG/JPG) ---------- */
+function photoLabel(key) { return key === 'chef' ? CHEF.name : (byId(MENU, key) || {}).name || key; }
+function configuredPhoto(key) { return key === 'chef' ? CHEF.photo : (byId(MENU, key) || {}).image; }
+
+function savePhotoOverrides() {
+  try { localStorage.setItem(KEYS.photos, JSON.stringify(photoOverrides)); return true; }
+  catch { return false; }
+}
+
+// Shrink uploads so they fit in localStorage (keeps PNG transparency when small).
+function fileToDataUrl(file, maxSide = 1100) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = reject;
+    reader.onload = () => {
+      const img = new Image();
+      img.onerror = reject;
+      img.onload = () => {
+        const scale = Math.min(1, maxSide / Math.max(img.width, img.height));
+        const c = document.createElement('canvas');
+        c.width = Math.round(img.width * scale);
+        c.height = Math.round(img.height * scale);
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        let out = c.toDataURL('image/png');
+        if (out.length > 900000) out = c.toDataURL('image/jpeg', 0.85);
+        resolve(out);
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function buildPhotoDialog() {
+  document.body.insertAdjacentHTML('beforeend', `
+  <dialog id="photo-dialog" class="rounded-3xl bg-char text-cream border border-copper/40 p-0 w-[min(92vw,460px)] backdrop:bg-black/60">
+    <form method="dialog" class="p-6 space-y-4">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p class="text-xs uppercase tracking-[.3em] text-copper">Demo photo</p>
+          <h3 id="pd-title" class="font-display text-2xl font-semibold mt-1"></h3>
+        </div>
+        <button value="cancel" class="text-cream/50 hover:text-cream text-2xl leading-none" aria-label="Close">×</button>
+      </div>
+      <div id="pd-preview" class="picbox rounded-2xl aspect-[4/3]"></div>
+      <label class="block text-sm">
+        <span class="block mb-1.5 text-cream/70">Paste an image link (PNG or JPG)</span>
+        <input id="pd-url" type="url" class="field" placeholder="https://…/photo.png" />
+      </label>
+      <label class="block text-sm">
+        <span class="block mb-1.5 text-cream/70">…or upload a file from this computer</span>
+        <input id="pd-file" type="file" accept="image/png,image/jpeg,image/webp" class="block w-full text-sm text-cream/70 file:mr-3 file:rounded-full file:border-0 file:bg-cream file:text-char file:px-4 file:py-2 file:font-medium" />
+      </label>
+      <p id="pd-msg" class="text-xs text-cream/50">Saved in this browser only. To make it permanent, put the link in app.js.</p>
+      <div class="flex flex-wrap gap-2 justify-between pt-2">
+        <button type="button" id="pd-reset" class="rounded-full border border-cream/25 hover:border-honey px-4 py-2 text-sm">Use original</button>
+        <div class="flex gap-2">
+          <button type="button" id="pd-export" class="rounded-full border border-cream/25 hover:border-honey px-4 py-2 text-sm">Copy links</button>
+          <button type="button" id="pd-save" class="rounded-full bg-ember hover:bg-[#d4692f] px-5 py-2 text-sm font-medium">Save</button>
+        </div>
+      </div>
+    </form>
+  </dialog>`);
+
+  const dlg = $('#photo-dialog'), urlEl = $('#pd-url'), fileEl = $('#pd-file'), msg = $('#pd-msg');
+  let key = '', pending = '';
+  const preview = (src) => hydratePic($('#pd-preview'), src, 'preview');
+
+  openPhotoDialog = (k) => {
+    key = k; pending = photoFor(k, configuredPhoto(k));
+    $('#pd-title').textContent = photoLabel(k);
+    urlEl.value = pending.startsWith('data:') ? '' : pending;
+    fileEl.value = '';
+    msg.textContent = 'Saved in this browser only. To make it permanent, put the link in app.js.';
+    preview(pending);
+    dlg.showModal();
+  };
+  urlEl.addEventListener('input', () => { pending = urlEl.value.trim(); preview(pending); });
+  fileEl.addEventListener('change', async () => {
+    const f = fileEl.files[0];
+    if (!f) return;
+    try { pending = await fileToDataUrl(f); urlEl.value = ''; preview(pending); }
+    catch { msg.textContent = 'Could not read that image.'; }
+  });
+  $('#pd-save').addEventListener('click', () => {
+    const prev = photoOverrides[key];
+    if (pending && pending !== configuredPhoto(key)) photoOverrides[key] = pending; else delete photoOverrides[key];
+    if (!savePhotoOverrides()) {
+      if (prev) photoOverrides[key] = prev; else delete photoOverrides[key];
+      msg.textContent = 'Browser storage is full. Use a smaller image or a link instead.';
+      return;
+    }
+    dlg.close();
+    refreshPhotos();
+    toast('Photo updated');
+  });
+  $('#pd-reset').addEventListener('click', () => {
+    delete photoOverrides[key];
+    savePhotoOverrides();
+    dlg.close();
+    refreshPhotos();
+    toast('Original photo restored');
+  });
+  $('#pd-export').addEventListener('click', async () => {
+    const links = Object.fromEntries(Object.entries(photoOverrides).filter(([, v]) => !v.startsWith('data:')));
+    const text = JSON.stringify(links, null, 2);
+    try { await navigator.clipboard.writeText(text); msg.textContent = 'Copied photo links (uploads are not included).'; }
+    catch { msg.textContent = text; }
+  });
+}
+let openPhotoDialog = () => {};
+
+function refreshPhotos() { renderChef(); renderMenu(); }
 
 /* ---------- menu ---------- */
 function renderTabs() {
@@ -170,7 +353,7 @@ function renderMenu() {
   const items = state.category === 'All' ? MENU : MENU.filter((m) => m.category === state.category);
   $('#menu-grid').innerHTML = items.map((m) => `
     <article class="group rounded-3xl bg-bark/40 border border-copper/15 hover:border-copper/50 transition overflow-hidden flex flex-col">
-      <div class="picbox aspect-[4/3]" data-pic="${esc(m.image)}"></div>
+      <div class="picbox aspect-[4/3]" data-photo="${m.id}"></div>
       <div class="p-5 flex flex-col flex-1">
         <div class="flex items-start justify-between gap-3">
           <h3 class="font-display text-xl font-semibold leading-tight">${esc(m.name)}</h3>
@@ -184,7 +367,10 @@ function renderMenu() {
         </div>
       </div>
     </article>`).join('');
-  document.querySelectorAll('#menu-grid [data-pic]').forEach((box) => hydratePic(box, box.dataset.pic));
+  document.querySelectorAll('#menu-grid [data-photo]').forEach((box) => {
+    const m = byId(MENU, box.dataset.photo);
+    hydratePic(box, photoFor(m.id, m.image), 'photo', m.id);
+  });
 }
 
 /* ---------- cart panel ---------- */
@@ -472,7 +658,8 @@ function init() {
     });
   }
 
-  document.querySelectorAll('[data-pic]').forEach((box) => hydratePic(box, box.dataset.pic, box.dataset.label || 'photo'));
+  if (DEMO) buildPhotoDialog();
+  renderChef();
   renderTabs();
   renderMenu();
   renderCart();
@@ -511,6 +698,8 @@ function init() {
   document.addEventListener('click', (e) => {
     const b = e.target.closest('[data-goto]');
     if (b) selectStop(b.dataset.goto, { scroll: true });
+    const ed = e.target.closest('[data-edit-photo]');
+    if (ed) openPhotoDialog(ed.dataset.editPhoto);
   });
   $('#f-stop').addEventListener('change', (e) => selectStop(e.target.value));
   $('#f-date').addEventListener('change', () => refreshDateAndWindows(false));
