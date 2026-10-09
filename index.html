@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Velvet Plate — Huntsville Smokehouse on Wheels</title>
+  <meta name="description" content="The Velvet Plate: upscale BBQ food truck in Huntsville, Alabama. Brisket, ribs, smoked lamb chops. Pre-order for pickup." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='12' fill='none' stroke='%23B87333' stroke-width='3'/%3E%3Ccircle cx='22' cy='10' r='3' fill='%23C45C26'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@10.11.0/ol.css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    if (window.tailwind) tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            char: '#1A1210', bark: '#3D1F14', ember: '#C45C26', honey: '#E8A04A',
+            cream: '#F6EDE4', wine: '#6B2D3C', copper: '#B87333',
+          },
+          fontFamily: {
+            display: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+    body { background: #1A1210; color: #F6EDE4; }
+    ::selection { background: #C45C26; color: #F6EDE4; }
+
+    /* Hero smoke + ember glow (no photos needed) */
+    .hero-bg {
+      background:
+        radial-gradient(60% 50% at 75% 70%, rgba(196,92,38,.35), transparent 70%),
+        radial-gradient(40% 35% at 20% 30%, rgba(107,45,60,.45), transparent 70%),
+        radial-gradient(80% 60% at 50% 120%, rgba(232,160,74,.18), transparent 70%),
+        #1A1210;
+    }
+    .smoke { position: absolute; border-radius: 9999px; filter: blur(60px); opacity: .22; background: #F6EDE4; animation: drift 18s ease-in-out infinite; }
+    .smoke.s2 { animation-duration: 24s; animation-delay: -6s; opacity: .14; }
+    .smoke.s3 { animation-duration: 30s; animation-delay: -12s; opacity: .1; }
+    @keyframes drift {
+      0%   { transform: translate(0, 40px) scale(1); }
+      50%  { transform: translate(-60px, -60px) scale(1.25); }
+      100% { transform: translate(0, 40px) scale(1); }
+    }
+    .ember-spark { position: absolute; width: 4px; height: 4px; border-radius: 9999px; background: #E8A04A; box-shadow: 0 0 8px 2px rgba(232,160,74,.7); animation: rise linear infinite; opacity: 0; }
+    @keyframes rise {
+      0% { transform: translateY(0); opacity: 0; }
+      10% { opacity: .9; }
+      100% { transform: translateY(-70vh) translateX(30px); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { .smoke, .ember-spark { animation: none; } }
+
+    .grain::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .06;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* Picture boxes: work with zero images present */
+    .picbox { position: relative; overflow: hidden; background:
+        repeating-linear-gradient(135deg, rgba(184,115,51,.08) 0 12px, rgba(184,115,51,.02) 12px 24px),
+        linear-gradient(160deg, #3D1F14, #2a1610); }
+    .picbox img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .picbox .pic-label { position: absolute; inset: 0; display: grid; place-items: center; font: 500 .7rem/1 "DM Sans", sans-serif; letter-spacing: .25em; text-transform: uppercase; color: rgba(246,237,228,.35); }
+    .picbox .pic-label::before { content: ''; position: absolute; width: 56px; height: 56px; border: 1.5px dashed rgba(184,115,51,.45); border-radius: 9999px; }
+
+    /* Map */
+    #map { background: #241814; }
+    #map .ol-layer.basemap canvas { filter: grayscale(1) invert(1) sepia(.45) hue-rotate(-12deg) saturate(1.4) brightness(.72) contrast(.95); }
+    .ol-zoom button { background: #3D1F14 !important; color: #F6EDE4 !important; }
+    .ol-attribution { font-size: 10px; }
+    .ol-popup { background: #F6EDE4; color: #1A1210; border-radius: 12px; padding: 10px 14px; min-width: 190px; box-shadow: 0 10px 30px rgba(0,0,0,.4); transform: translate(-50%, calc(-100% - 18px)); position: relative; }
+    .ol-popup::after { content: ''; position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); border: 8px solid transparent; border-bottom: 0; border-top-color: #F6EDE4; }
+
+    .field { width: 100%; background: #1A1210; border: 1px solid rgba(184,115,51,.35); border-radius: .75rem; padding: .7rem .9rem; color: #F6EDE4; }
+    .field:focus { outline: none; border-color: #E8A04A; box-shadow: 0 0 0 3px rgba(232,160,74,.2); }
+    .field::placeholder { color: rgba(246,237,228,.35); }
+    select.field option { background: #1A1210; }
+    input[type=date].field { color-scheme: dark; }
+
+    .tab[aria-selected="true"] { background: #F6EDE4; color: #1A1210; border-color: #F6EDE4; }
+    .bump { animation: bump .35s ease; }
+    @keyframes bump { 50% { transform: scale(1.35); } }
+  </style>
+</head>
+<body class="font-sans antialiased">
+
+  <!-- Demo banner (shown only in demo build via config.js) -->
+  <div id="demo-banner" class="hidden bg-honey text-char text-center text-sm font-medium px-4 py-2">
+    Client preview — orders are simulated and saved only in this browser. No payment is taken.
+    <button id="demo-reset" class="underline ml-2">Reset demo</button>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="sticky top-0 z-40 bg-char/85 backdrop-blur border-b border-copper/20">
+    <nav class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
+      <a href="#top" class="flex items-center gap-3 shrink-0" aria-label="The Velvet Plate home">
+        <svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="15" fill="none" stroke="#B87333" stroke-width="3"/>
+          <circle cx="20" cy="20" r="9" fill="none" stroke="#B87333" stroke-width="1" opacity=".5"/>
+          <circle cx="29" cy="11" r="3.5" fill="#C45C26"/>
+        </svg>
+        <span class="leading-none">
+          <span class="block font-display font-semibold text-lg tracking-tight">The Velvet Plate</span>
+          <span class="block text-[10px] uppercase tracking-[.3em] text-copper mt-1">Huntsville</span>
+        </span>
+      </a>
+      <div class="hidden md:flex items-center gap-7 text-sm text-cream/80">
+        <a href="#menu" class="hover:text-honey">Menu</a>
+        <a href="#truck" class="hover:text-honey">Truck</a>
+        <a href="#preorder" class="hover:text-honey">Pre-order</a>
+        <a href="#chef" class="hover:text-honey">Chef</a>
+      </div>
+      <a href="#preorder" class="flex items-center gap-2 rounded-full border border-copper/40 px-4 py-2 text-sm hover:border-honey">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="sr-only">Cart items:</span>
+        <span id="cart-count" class="min-w-[1.25rem] text-center font-medium">0</span>
+      </a>
+    </nav>
+    <div class="md:hidden flex justify-center gap-6 pb-2 text-xs uppercase tracking-widest text-cream/70">
+      <a href="#menu">Menu</a><a href="#truck">Truck</a><a href="#preorder">Pre-order</a><a href="#chef">Chef</a>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section id="top" class="hero-bg grain relative overflow-hidden">
+    <div class="smoke" style="width:420px;height:420px;left:55%;top:10%"></div>
+    <div class="smoke s2" style="width:520px;height:520px;left:5%;top:35%"></div>
+    <div class="smoke s3" style="width:360px;height:360px;left:70%;top:55%"></div>
+    <div id="sparks" aria-hidden="true"></div>
+
+    <div class="relative max-w-6xl mx-auto px-4 pt-20 pb-24 md:pt-32 md:pb-36">
+      <p class="text-copper uppercase tracking-[.35em] text-xs mb-6">Rocket City smokehouse · on wheels</p>
+      <h1 class="font-display font-extrabold leading-[.92] tracking-tight text-6xl sm:text-7xl md:text-8xl max-w-3xl">
+        The Velvet <em class="font-normal italic text-honey">Plate</em>
+      </h1>
+      <p class="mt-6 text-xl md:text-2xl text-cream/80 max-w-xl font-display">Smoke, velvet, and a clean plate.</p>
+      <p class="mt-3 text-cream/60 max-w-md">Post oak, fourteen hours, and a short menu we cook all the way. Order ahead, walk up, eat well.</p>
+      <div class="mt-10 flex flex-wrap gap-3">
+        <a href="#menu" class="rounded-full bg-ember hover:bg-[#d4692f] px-7 py-3.5 font-medium shadow-lg shadow-ember/30 transition">Pre-order for pickup</a>
+        <a href="#truck" class="rounded-full border border-cream/30 hover:border-honey hover:text-honey px-7 py-3.5 font-medium transition">Find the truck</a>
+      </div>
+      <div id="hero-next" class="mt-14 inline-flex items-center gap-3 rounded-2xl bg-char/60 border border-copper/25 px-4 py-3 text-sm"></div>
+    </div>
+  </section>
+
+  <!-- ============ MENU ============ -->
+  <section id="menu" class="max-w-6xl mx-auto px-4 py-20 md:py-28">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+      <div>
+        <p class="text-copper uppercase tracking-[.3em] text-xs mb-3">The menu</p>
+        <h2 class="font-display text-4xl md:text-5xl font-semibold">Short list. Long smoke.</h2>
+      </div>
+      <div id="menu-tabs" role="tablist" class="flex flex-wrap gap-2"></div>
+    </div>
+    <div id="menu-grid" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
+  </section>
+
+  <!-- ============ CHEF ============ -->
+  <section id="chef" class="bg-bark/50 border-y border-copper/15">
+    <div class="max-w-6xl mx-auto px-4 py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center">
+      <!-- replace chef.jpg -->
+      <div class="picbox rounded-[2rem] aspect-[4/5] ring-1 ring-copper/30" data-pic="images/chef.jpg" data-label="Chef photo"></div>
+      <div>
+        <p class="text-copper uppercase tracking-[.3em] text-xs mb-3">Pitmaster</p>
+        <h2 class="font-display text-4xl md:text-5xl font-semibold">Chef Marcus Hale</h2>
+        <p class="mt-6 text-lg text-cream/80 leading-relaxed">Marcus learned fire in his grandfather's backyard off Pulaski Pike and finished his training on the line in white-tablecloth kitchens. The Velvet Plate is where those two worlds meet: slow Alabama smoke, plated like it matters.</p>
+        <blockquote class="mt-8 border-l-2 border-ember pl-5 font-display italic text-xl text-honey">"Every plate should come back clean."</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRUCK MAP ============ -->
+  <section id="truck" class="max-w-6xl mx-auto px-4 py-20 md:py-28">
+    <p class="text-copper uppercase tracking-[.3em] text-xs mb-3">This week</p>
+    <h2 class="font-display text-4xl md:text-5xl font-semibold mb-10">Find the truck</h2>
+    <div class="grid lg:grid-cols-[1fr_340px] gap-6">
+      <div class="relative rounded-3xl overflow-hidden ring-1 ring-copper/30">
+        <div id="map" class="h-[420px] md:h-[520px] w-full"></div>
+        <div id="map-popup" class="ol-popup hidden"></div>
+        <div id="map-fallback" class="hidden absolute inset-0 grid place-items-center text-cream/50 text-sm">Map could not load. Pick a stop from the list.</div>
+      </div>
+      <div>
+        <ul id="stop-list" class="space-y-3"></ul>
+        <div id="stop-selected" class="mt-5 rounded-2xl bg-wine/40 border border-wine px-5 py-4 text-sm"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRE-ORDER ============ -->
+  <section id="preorder" class="bg-bark/40 border-t border-copper/15">
+    <div class="max-w-6xl mx-auto px-4 py-20 md:py-28">
+      <p class="text-copper uppercase tracking-[.3em] text-xs mb-3">Pre-order</p>
+      <h2 class="font-display text-4xl md:text-5xl font-semibold mb-3">Skip the line.</h2>
+      <p class="text-cream/60 mb-10">Pick a stop and a window. We'll have it wrapped and warm.</p>
+
+      <div id="notice" class="hidden mb-6 rounded-2xl px-5 py-4 text-sm"></div>
+
+      <form id="order-form" class="grid lg:grid-cols-[1fr_380px] gap-8" novalidate>
+        <div class="grid sm:grid-cols-2 gap-4 content-start">
+          <label class="sm:col-span-2 text-sm">
+            <span class="block mb-1.5 text-cream/70">Pickup stop</span>
+            <select id="f-stop" class="field" required></select>
+          </label>
+          <label class="text-sm">
+            <span class="block mb-1.5 text-cream/70">Date</span>
+            <input id="f-date" type="date" class="field" required />
+          </label>
+          <label class="text-sm">
+            <span class="block mb-1.5 text-cream/70">Pickup window</span>
+            <select id="f-window" class="field" required></select>
+          </label>
+          <label class="text-sm">
+            <span class="block mb-1.5 text-cream/70">Name</span>
+            <input id="f-name" class="field" autocomplete="name" placeholder="Your name" required maxlength="100" />
+          </label>
+          <label class="text-sm">
+            <span class="block mb-1.5 text-cream/70">Phone</span>
+            <input id="f-phone" type="tel" class="field" autocomplete="tel" placeholder="(256) 555-0100" required maxlength="30" />
+          </label>
+          <label class="sm:col-span-2 text-sm">
+            <span class="block mb-1.5 text-cream/70">Notes <span class="text-cream/40">(optional)</span></span>
+            <textarea id="f-notes" rows="3" class="field" maxlength="500" placeholder="Sauce on the side, allergy notes…"></textarea>
+          </label>
+          <p id="date-hint" class="sm:col-span-2 text-xs text-cream/50"></p>
+        </div>
+
+        <aside class="rounded-3xl bg-char border border-copper/25 p-6 h-fit lg:sticky lg:top-24">
+          <h3 class="font-display text-2xl font-semibold mb-4">Your order</h3>
+          <ul id="cart-lines" class="divide-y divide-copper/15"></ul>
+          <div class="flex justify-between items-baseline mt-5 pt-4 border-t border-copper/25">
+            <span class="text-cream/70">Total</span>
+            <span id="cart-total" class="font-display text-3xl font-semibold text-honey">$0.00</span>
+          </div>
+          <button id="pay-btn" type="submit" class="mt-6 w-full rounded-full bg-ember hover:bg-[#d4692f] disabled:opacity-40 disabled:cursor-not-allowed py-3.5 font-medium transition">
+            Pay with Stripe
+          </button>
+          <p id="pay-note" class="mt-3 text-xs text-cream/40 text-center">Secure checkout by Stripe. Pay now, pick up hot.</p>
+        </aside>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-copper/20">
+    <div class="max-w-6xl mx-auto px-4 py-12 grid sm:grid-cols-3 gap-8 text-sm text-cream/60">
+      <div>
+        <p class="font-display text-xl text-cream">The Velvet Plate</p>
+        <p class="mt-1">Huntsville, Alabama</p>
+      </div>
+      <div>
+        <p><a href="tel:+12565550142" class="hover:text-honey">(256) 555-0142</a></p>
+        <p class="mt-1"><a href="#" class="hover:text-honey">@thevelvetplate</a></p>
+      </div>
+      <p class="sm:text-right">Menu and stops are sample data.</p>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden rounded-full bg-cream text-char px-5 py-3 text-sm font-medium shadow-2xl"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/ol@10.11.0/dist/ol.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
