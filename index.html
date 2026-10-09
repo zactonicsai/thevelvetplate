@@ -429,6 +429,23 @@
     .field::placeholder { color: rgba(246,237,228,.35); }
     select.field option { background: #1A1210; }
     input[type=date].field { color-scheme: dark; }
+    /* ---------- mobile friendly ---------- */
+    html, body { overflow-x: clip; }
+    .field { font-size: 16px; } /* 16px stops iPhones zooming in when a field is tapped */
+    #order-form > * { min-width: 0; }
+    #toast { max-width: calc(100vw - 2rem); width: max-content; text-align: center; bottom: calc(1.5rem + env(safe-area-inset-bottom)); }
+    dialog { max-height: 90dvh; overflow-y: auto; }
+    @media (max-width: 1023px) {
+      #order-form { grid-template-columns: minmax(0, 1fr); }
+    }
+    @media (max-width: 639px) {
+      #cart-lines [data-inc], #cart-lines [data-dec] { width: 2.5rem; height: 2.5rem; font-size: 1.1rem; }
+      #cart-lines .truncate { white-space: normal; overflow: visible; line-height: 1.25; }
+      #cart-lines li > span:last-child { width: auto; min-width: 3.5rem; }
+      #pay-btn { padding-top: 1rem; padding-bottom: 1rem; font-size: 1.05rem; }
+      #confirm-dialog h3 { font-size: 1.6rem; }
+      #confirm-dialog p.text-lg { font-size: 1.05rem; }
+    }
 
     .tab[aria-selected="true"] { background: #F6EDE4; color: #1A1210; border-color: #F6EDE4; }
     .bump { animation: bump .35s ease; }
