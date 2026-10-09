@@ -410,6 +410,9 @@
         repeating-linear-gradient(135deg, rgba(184,115,51,.08) 0 12px, rgba(184,115,51,.02) 12px 24px),
         linear-gradient(160deg, #3D1F14, #2a1610); }
     .picbox img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    /* Chef photo: show the whole picture, no cropping. The box takes the photo's own shape. */
+    #chef-photo:has(img) { aspect-ratio: auto; }
+    #chef-photo img { position: relative; inset: auto; display: block; width: 100%; height: auto; object-fit: contain; }
     .picbox .pic-label { position: absolute; inset: 0; display: grid; place-items: center; font: 500 .7rem/1 "DM Sans", sans-serif; letter-spacing: .25em; text-transform: uppercase; color: rgba(246,237,228,.35); }
     .picbox .pic-label::before { content: ''; position: absolute; width: 56px; height: 56px; border: 1.5px dashed rgba(184,115,51,.45); border-radius: 9999px; }
 
@@ -500,8 +503,8 @@
       <div id="chef-photo" class="picbox rounded-[2rem] aspect-[4/5] w-full ring-1 ring-copper/30 overflow-hidden" data-label="Chef photo">
         <span class="pic-label">Chef photo</span>
         
-        <!-- FIXED: Removed inline styles, added w-full, h-full, and object-cover here -->
-        <img src="images/chef.png" class="w-full h-full object-cover" alt="Chef Thomas Smith IV" onerror="this.remove()" />
+        <!-- Whole photo shown, not cropped (see #chef-photo styles in <style>) -->
+        <img src="images/chef.png" alt="Chef Thomas Smith IV" onerror="this.remove()" />
       </div>
       
       <p id="chef-caption" class="mt-3 text-xs text-cream/45 text-center"></p>
@@ -796,7 +799,7 @@ function notice(msg, kind = 'info') {
 
 /* ---------- picture boxes ---------- */
 // Demo only: photos swapped in the browser (URL or uploaded PNG/JPG) are kept here.
-const photoOverrides = DEMO ? store.get(KEYS.photos, {}) : {};
+const photoOverrides = {}; // photo editor removed: always use the configured photos
 function photoFor(key, configured) { return photoOverrides[key] || configured || ''; }
 
 // box: .picbox element; key: 'chef' or a menu item id (used by the demo photo editor)
@@ -812,10 +815,6 @@ function hydratePic(box, src, label = 'photo', key = '') {
     img.onerror = () => img.remove(); // broken link or missing file: keep the tinted frame
     img.src = src;
     box.appendChild(img);
-  }
-  if (DEMO && key) {
-    box.insertAdjacentHTML('beforeend',
-      `<button type="button" data-edit-photo="${esc(key)}" class="absolute bottom-3 right-3 z-10 rounded-full bg-char/80 hover:bg-ember text-cream text-xs px-3 py-1.5 backdrop-blur border border-cream/20 transition">${src ? 'Change photo' : 'Add photo'}</button>`);
   }
 }
 
@@ -1344,7 +1343,6 @@ function init() {
     });
   }
 
-  if (DEMO) buildPhotoDialog();
   renderChef();
   renderTabs();
   renderMenu();
