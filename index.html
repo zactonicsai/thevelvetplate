@@ -493,27 +493,31 @@
     </div>
   </section>
 
-  <!-- ============ CHEF ============ -->
-  <section id="chef" class="bg-bark/50 border-y border-copper/15">
-    <!-- Chef content (name, bio, photo) lives in the CHEF object at the top of app.js.
-         Chef photo: chef.jpg, placed in the same folder as index.html.
-         To use a different photo, replace chef.jpg or set CHEF.photo to another file or any public PNG/JPG link. -->
-    <div class="max-w-6xl mx-auto px-4 py-20 md:py-28 grid md:grid-cols-[5fr_7fr] gap-12 items-start">
-      <div class="md:sticky md:top-24">
-        <div id="chef-photo" class="picbox rounded-[2rem] aspect-[4/5] ring-1 ring-copper/30" data-label="Chef photo"><span class="pic-label">Chef photo</span><img src="chef.png" alt="Chef Thomas Smith IV" onerror="this.remove()" /></div>
-        <p id="chef-caption" class="mt-3 text-xs text-cream/45 text-center"></p>
+  <!-- ============ CHEF ============ --><section id="chef" class="bg-bark/50 border-y border-copper/15">
+  <div class="max-w-6xl mx-auto px-4 py-20 md:py-28 grid md:grid-cols-[5fr_7fr] gap-12 items-start">
+    <div class="md:sticky md:top-24">
+      
+      <div id="chef-photo" class="picbox rounded-[2rem] aspect-[4/5] w-full ring-1 ring-copper/30 overflow-hidden" data-label="Chef photo">
+        <span class="pic-label">Chef photo</span>
+        
+        <!-- FIXED: Removed inline styles, added w-full, h-full, and object-cover here -->
+        <img src="images/chef.png" class="w-full h-full object-cover" alt="Chef Thomas Smith IV" onerror="this.remove()" />
       </div>
-      <div>
-        <p id="chef-title" class="text-copper uppercase tracking-[.3em] text-xs mb-3"></p>
-        <h2 id="chef-name" class="font-display text-4xl md:text-5xl font-semibold"></h2>
-        <p id="chef-hometown" class="mt-2 text-honey font-display italic text-lg"></p>
-        <ul id="chef-facts" class="mt-6 grid grid-cols-3 gap-3"></ul>
-        <div id="chef-bio" class="mt-8 space-y-5 text-lg text-cream/80 leading-relaxed"></div>
-        <div id="chef-family" class="mt-8"></div>
-        <blockquote id="chef-quote" class="mt-8 border-l-2 border-ember pl-5 font-display italic text-2xl text-honey"></blockquote>
-      </div>
+      
+      <p id="chef-caption" class="mt-3 text-xs text-cream/45 text-center"></p>
     </div>
-  </section>
+    
+    <div>
+      <p id="chef-title" class="text-copper uppercase tracking-[.3em] text-xs mb-3"></p>
+      <h2 id="chef-name" class="font-display text-4xl md:text-5xl font-semibold"></h2>
+      <p id="chef-hometown" class="mt-2 text-honey font-display italic text-lg"></p>
+      <ul id="chef-facts" class="mt-6 grid grid-cols-3 gap-3"></ul>
+      <div id="chef-bio" class="mt-8 space-y-5 text-lg text-cream/80 leading-relaxed"></div>
+      <div id="chef-family" class="mt-8"></div>
+      <blockquote id="chef-quote" class="mt-8 border-l-2 border-ember pl-5 font-display italic text-2xl text-honey"></blockquote>
+    </div>
+  </div>
+</section>
 
   <!-- ============ MENU ============ -->
   <section id="menu" class="max-w-6xl mx-auto px-4 py-20 md:py-28">
@@ -654,7 +658,7 @@ const MENU = [
 
 /* ---------------------------------------------------------------
  * CHEF — owner / chef section.
- * photo: EITHER a local file   'chef.jpg'   (same folder as index.html)
+ * photo: EITHER a local file   'images/chef.png'   (in the images/ folder)
  *        OR any public link    'https://example.com/thomas-smith.png'
  * Leave photo empty ('') to show the "Chef photo" frame.
  * ------------------------------------------------------------- */
@@ -662,7 +666,7 @@ const CHEF = {
   name: 'Thomas Smith IV',
   title: 'Owner & Chef',
   hometown: 'Louisville, KY — Derby City',
-  photo: 'chef.jpg',
+  photo: 'images/chef.png',
   photoCaption: '',
   facts: [
     { value: '7', label: 'Age he started cooking' },
