@@ -33,6 +33,9 @@
     input, select, textarea { font-size: 16px; }
     body { -webkit-tap-highlight-color: transparent; }
     section[id] { scroll-margin-top: 64px; }
+    .field-error { border-color:#b91c1c !important; box-shadow:0 0 0 3px rgba(185,28,28,.18); border-radius:.6rem; }
+    .hidden { display:none; }   /* backup in case the Tailwind CDN loads slowly */
+    .field-msg { color:#b91c1c; font-size:.8rem; font-weight:700; margin-top:.3rem; text-transform:none; letter-spacing:normal; }
     @keyframes fade { from { opacity:0; transform: translateY(10px);} to { opacity:1; transform:none; } }
   </style>
 </head>
@@ -185,11 +188,13 @@
       </div>
       <form id="quoteForm" novalidate class="bg-cream text-stone-800 rounded-2xl p-5 sm:p-6 space-y-3">
         <h3 class="font-serif text-xl text-velvet-900">Request a Callback</h3>
-        <input required name="name" autocomplete="name" placeholder="Your name" class="w-full border border-stone-300 rounded-lg px-3 py-3" />
-        <input required name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Phone number" class="w-full border border-stone-300 rounded-lg px-3 py-3" />
-        <input name="email" type="email" autocomplete="email" placeholder="Email (optional)" class="w-full border border-stone-300 rounded-lg px-3 py-3" />
+        <p class="text-xs text-stone-500">Fields marked * are required.</p>
+        <div class="formErr hidden bg-red-50 border border-red-300 text-red-800 rounded-xl p-3 text-sm" role="alert" aria-live="assertive" tabindex="-1"></div>
+        <input required name="name" autocomplete="name" placeholder="Your name *" aria-required="true" class="w-full border border-stone-300 rounded-lg px-3 py-3" />
+        <input required name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Phone number *" aria-required="true" class="w-full border border-stone-300 rounded-lg px-3 py-3" />
+        <input required aria-required="true" name="email" type="email" autocomplete="email" inputmode="email" placeholder="Email *" class="w-full border border-stone-300 rounded-lg px-3 py-3" />
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <input name="guests" type="number" min="1" max="500" inputmode="numeric" placeholder="Number of guests" class="w-full border border-stone-300 rounded-lg px-3 py-3" />
+          <input required aria-required="true" name="guests" type="number" min="1" max="500" inputmode="numeric" placeholder="Number of guests *" class="w-full border border-stone-300 rounded-lg px-3 py-3" />
           <select name="city" class="w-full border border-stone-300 rounded-lg px-3 py-3 bg-white">
             <option>Huntsville</option><option>Madison</option><option>Harvest</option><option>Athens</option><option>Decatur</option><option>Other North AL</option>
           </select>
@@ -197,11 +202,11 @@
         <!-- spam trap: real people never see or fill this -->
         <input type="text" name="company_website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <label class="block text-xs text-stone-500">Event date
-            <input name="date" type="date" class="mt-1 w-full border border-stone-300 rounded-lg px-3 py-3 text-stone-800 bg-white" />
+          <label class="block text-xs text-stone-500">Event date *
+            <input required aria-required="true" name="date" type="date" class="mt-1 w-full border border-stone-300 rounded-lg px-3 py-3 text-stone-800 bg-white" />
           </label>
-          <label class="block text-xs text-stone-500">Package
-            <select id="formPackage" name="package" class="mt-1 w-full border border-stone-300 rounded-lg px-3 py-3 text-stone-800 bg-white"></select>
+          <label class="block text-xs text-stone-500">Package *
+            <select required aria-required="true" id="formPackage" name="package" class="mt-1 w-full border border-stone-300 rounded-lg px-3 py-3 text-stone-800 bg-white"></select>
           </label>
         </div>
         <select name="diet" class="w-full border border-stone-300 rounded-lg px-3 py-3 bg-white">
@@ -216,7 +221,6 @@
             and <a href="privacy.html" target="_blank" class="text-velvet-700 font-bold underline">Privacy Policy</a>.</span>
         </label>
         <button type="submit" class="w-full bg-velvet-700 hover:bg-velvet-600 disabled:opacity-60 text-cream font-bold py-3 rounded-lg transition">Request My Quote</button>
-        <p class="formErr hidden text-center text-velvet-700 text-sm"></p>
       </form>
     </div>
   </section>
@@ -230,7 +234,8 @@
       </div>
       <p id="quoteModalPkg" class="text-sm text-gold-500 font-bold mb-4"></p>
       <form id="quickForm" class="space-y-3" novalidate>
-        <input type="hidden" name="package" />
+        <p class="text-xs text-stone-500">Fields marked * are required.</p>
+        <div class="formErr hidden bg-red-50 border border-red-300 text-red-800 rounded-xl p-3 text-sm" role="alert" aria-live="assertive" tabindex="-1"></div>
         <label class="block text-xs font-bold uppercase tracking-wider text-stone-500">Full name *
           <input required name="name" autocomplete="name" placeholder="First and last name" class="mt-1 w-full border border-stone-300 rounded-lg px-3 py-3 font-normal normal-case tracking-normal text-stone-800" />
         </label>
@@ -259,8 +264,11 @@
           <div id="calChips" class="flex flex-wrap gap-2 mt-2"></div>
         </div>
 
+        <label class="block text-xs font-bold uppercase tracking-wider text-stone-500">Package *
+          <select required aria-required="true" id="quickPackage" name="package" class="mt-1 w-full border border-stone-300 rounded-lg px-3 py-3 bg-white font-normal normal-case tracking-normal text-stone-800"></select>
+        </label>
         <div class="grid grid-cols-2 gap-3">
-          <input name="guests" type="number" min="1" max="500" inputmode="numeric" placeholder="Guests" class="w-full border border-stone-300 rounded-lg px-3 py-3" />
+          <input required aria-required="true" name="guests" type="number" min="1" max="500" inputmode="numeric" placeholder="Guests *" class="w-full border border-stone-300 rounded-lg px-3 py-3" />
           <select name="city" class="w-full border border-stone-300 rounded-lg px-3 py-3 bg-white">
             <option>Huntsville</option><option>Madison</option><option>Harvest</option><option>Athens</option><option>Decatur</option><option>Other North AL</option>
           </select>
@@ -277,7 +285,6 @@
             and <a href="privacy.html" target="_blank" class="text-velvet-700 font-bold underline">Privacy Policy</a>.</span>
         </label>
         <button type="submit" class="w-full bg-velvet-700 hover:bg-velvet-600 disabled:opacity-60 text-cream font-bold py-3.5 rounded-full transition">Send My Request</button>
-        <p class="formErr hidden text-center text-velvet-700 text-sm font-bold"></p>
       </form>
     </div>
   </div>
@@ -411,7 +418,10 @@
     // Package dropdown in form
     const formPkg = document.getElementById('formPackage');
     function fillPackageDropdown() {
-      formPkg.innerHTML = '<option value="">Choose a package</option>' + packages.map(p => `<option>${p.name}</option>`).join('');
+      const opts = '<option value="">Choose a package *</option>' + packages.map(p => `<option>${p.name}</option>`).join('')
+                 + '<option>Not sure yet / Custom order</option>';
+      formPkg.innerHTML = opts;
+      document.getElementById('quickPackage').innerHTML = opts;
     }
     // ---------- MODALS ----------
     const quoteModal = document.getElementById('quoteModal'), thanksModal = document.getElementById('thanksModal');
@@ -473,11 +483,11 @@
 
     function openQuote(pkg = '') {
       quickForm.package.value = pkg;
-      quickForm.guests.value = pkg ? slider.value : '';
+      quickForm.guests.value = slider.value;
       document.getElementById('quoteModalPkg').textContent = pkg ? `Package: ${pkg}` : 'Tell us about your gathering and we\'ll call you with pricing.';
       calState.selected.clear(); calState.view = new Date(); calState.view.setDate(1);
       renderCal();
-      quickForm.querySelector('.formErr').classList.add('hidden');
+      clearFieldErrors(quickForm);
       showModal(quoteModal);
       setTimeout(() => quickForm.name.focus(), 50);
     }
@@ -547,38 +557,90 @@
       if (!res.ok) throw new Error('Zapier responded ' + res.status);
     }
 
+    // Every order needs: name, email, phone, package, guest count and date(s).
+    const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function clearFieldErrors(form) {
+      form.querySelectorAll('.field-error').forEach(el => el.classList.remove('field-error'));
+      form.querySelectorAll('.field-msg').forEach(el => el.remove());
+      const box = form.querySelector('.formErr'); box.classList.add('hidden'); box.innerHTML = '';
+    }
+
+    function markField(el, msg) {
+      el.classList.add('field-error');
+      el.setAttribute('aria-invalid', 'true');
+      const note = document.createElement('p');
+      note.className = 'field-msg'; note.textContent = msg;
+      // calendar: put the note under the whole calendar box
+      const anchor = el.id === 'calGrid' ? el.parentElement : el;
+      anchor.insertAdjacentElement('afterend', note);
+    }
+
     function validate(form) {
-      const name = form.name.value.trim(), phone = form.phone.value.replace(/\D/g, ''), email = form.email.value.trim();
-      if (!name) return 'Please enter your name.';
-      if (form === quickForm && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return 'Please enter a valid email address.';
-      if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return 'Please check your email address.';
-      if (phone.length < 10) return 'Please enter a 10-digit phone number.';
-      if (form === quickForm && calState.selected.size === 0) return 'Please pick at least one date on the calendar.';
-      return '';
+      const today = ymd(new Date());
+      const v = name => (form[name] && form[name].value || '').trim();
+      const checks = [
+        ['name',    form.name,    v('name').length >= 2,                     'Name is required.'],
+        ['email',   form.email,   EMAIL_RE.test(v('email')),                 v('email') ? 'Enter a valid email, like name@example.com.' : 'Email is required.'],
+        ['phone',   form.phone,   v('phone').replace(/\D/g,'').length >= 10, v('phone') ? 'Enter a 10-digit phone number.' : 'Phone number is required.'],
+        ['package', form.package, !!v('package'),                            'Please choose a package.'],
+        ['guests',  form.guests,  Number(v('guests')) >= 1,                  'Number of guests is required.'],
+        form === quickForm
+          ? ['date', document.getElementById('calGrid'), calState.selected.size > 0, 'Pick at least one date on the calendar.']
+          : ['date', form.date, !!v('date') && v('date') >= today,          v('date') ? 'Date must be today or later.' : 'Event date is required.']
+      ];
+      clearFieldErrors(form);
+      const failed = checks.filter(c => !c[2]);
+      failed.forEach(([, el, , msg]) => markField(el, msg));
+      return failed.map(c => c[3]);
+    }
+
+    function showFormMessage(form, html) {
+      const box = form.querySelector('.formErr');
+      box.innerHTML = html;
+      box.classList.remove('hidden');
+      box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      box.focus({ preventScroll: true });           // screen readers announce it
     }
 
     function wireForm(form, source) {
       form.addEventListener('submit', async e => {
         e.preventDefault();
-        const btn = form.querySelector('[type=submit]'), err = form.querySelector('.formErr');
-        const problem = validate(form);
-        if (problem) { err.textContent = problem; err.classList.remove('hidden'); return; }
+        const btn = form.querySelector('[type=submit]');
+        const problems = validate(form);
+        if (problems.length) {
+          showFormMessage(form, `<p class="font-bold mb-1">Please complete the required fields:</p>
+            <ul class="list-disc pl-5 space-y-0.5">${problems.map(m => `<li>${m}</li>`).join('')}</ul>`);
+          return;
+        }
         if (form.company_website.value) { form.reset(); showThanks(''); return; }   // spam trap
         const label = btn.textContent, name = form.name.value.trim();
-        btn.disabled = true; btn.textContent = 'Sending...'; err.classList.add('hidden');
+        btn.disabled = true; btn.textContent = 'Sending...'; clearFieldErrors(form);
         try {
           await sendToZapier(buildPayload(form, source));
           form.reset(); calState.selected.clear();
           showThanks(name);
         } catch (ex) {
           console.error(ex);
-          err.innerHTML = 'Sorry, that didn\'t go through. Please try again or call <a class="underline" href="tel:2565550123">(256) 555-0123</a>.';
-          err.classList.remove('hidden');
+          showFormMessage(form, 'Sorry, that didn\'t go through. Please try again or call <a class="font-bold underline" href="tel:2565550123">(256) 555-0123</a>.');
         } finally {
           btn.disabled = false; btn.textContent = label;
         }
       });
     }
+    function clearOne(el) {
+      if (!el.classList.contains('field-error')) return;
+      el.classList.remove('field-error'); el.removeAttribute('aria-invalid');
+      const anchor = el.id === 'calGrid' ? el.parentElement : el;
+      if (anchor.nextElementSibling && anchor.nextElementSibling.classList.contains('field-msg')) anchor.nextElementSibling.remove();
+      const form = el.closest('form');
+      if (!form.querySelector('.field-error')) form.querySelector('.formErr').classList.add('hidden');
+    }
+    document.querySelectorAll('#quoteForm, #quickForm').forEach(f => {
+      f.addEventListener('input', e => clearOne(e.target));
+      f.addEventListener('change', e => clearOne(e.target));
+    });
+    document.getElementById('calGrid').addEventListener('click', e => { if (e.target.closest('[data-date]')) clearOne(e.currentTarget); });
     wireForm(document.getElementById('quoteForm'), 'Main quote form');
     wireForm(quickForm, 'Package request popup');
 
@@ -713,6 +775,7 @@
       catch (err) { showMenuError(err); }
     }
 
+    document.querySelector('#quoteForm [name=date]').min = ymd(new Date());
     fillPackageDropdown(); countdown(); loadMenu();
   </script>
 </body>
