@@ -5,7 +5,8 @@
     "diet can be \"vegan\", \"vegetarian\", or \"\" (blank for neither).",
     "Set \"available\": false to hide an item or package without deleting it.",
     "image can be a full web address or your own file, like \"images/turkey.jpg\". The emoji shows if the image can't load.",
-    "Packages: the guest slider highlights the package whose minGuests to maxGuests range fits. Use 0 and 0 to never auto-highlight."
+    "Packages: the guest slider highlights the package whose minGuests to maxGuests range fits. Use 0 and 0 to never auto-highlight.",
+    "Item photos are free-licensed images from Wikimedia Commons. Open the link and remove 'Special:FilePath/' and '?width=800' to reach the photo's page with its license and credit."
   ],
   "categories": [
     "Mains",
@@ -19,7 +20,7 @@
       "category": "Mains",
       "description": "Brined overnight, roasted golden with sage, thyme & pan gravy.",
       "diet": "",
-      "image": "https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Oven_roasted_brine-soaked_turkey.jpg?width=800",
       "emoji": "🦃",
       "available": true
     },
@@ -28,7 +29,7 @@
       "category": "Mains",
       "description": "Spiral ham lacquered with Kentucky bourbon, brown sugar & clove.",
       "diet": "",
-      "image": "https://images.unsplash.com/photo-1606851094291-6efae152bb87?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Glazed_and_sliced_ham.jpg?width=800",
       "emoji": "🍖",
       "available": true
     },
@@ -37,7 +38,7 @@
       "category": "Mains",
       "description": "Crispy skin, juicy inside, seasoned with our house Cajun blend.",
       "diet": "",
-      "image": "https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Fried_Turkey_%28Tsofi%29.jpg?width=800",
       "emoji": "🔥",
       "available": true
     },
@@ -46,7 +47,7 @@
       "category": "Mains",
       "description": "Red wine braise with root vegetables. A winter showstopper.",
       "diet": "",
-      "image": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Korean_braised_beef_short_ribs-Galbijjim.jpg?width=800",
       "emoji": "🥩",
       "available": true
     },
@@ -55,7 +56,7 @@
       "category": "Mains",
       "description": "Wild rice, cranberries, pecans & sage in roasted squash.",
       "diet": "vegan",
-      "image": "https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Acorn_squash_stuffed_with_pilaf_and_topped_with_cheese.jpg?width=800",
       "emoji": "🎃",
       "available": true
     },
@@ -69,11 +70,128 @@
       "available": true
     },
     {
+      "name": "Herb-Crusted Rack of Lamb",
+      "category": "Mains",
+      "description": "Dijon, rosemary & garlic crust, roasted pink with mint chimichurri.",
+      "diet": "",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Crown_roast_%28rack_of_lamb_or_mutton%29.jpg?width=800",
+      "emoji": "🐑",
+      "available": true
+    },
+    {
+      "name": "Rosemary Garlic Leg of Lamb",
+      "category": "Mains",
+      "description": "Slow-roasted bone-in leg studded with garlic, rosemary & lemon. Carved to order.",
+      "diet": "",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/A_roast_lamb_dinner_at_Black_Horse_Inn%2C_Nuthurst_West_Sussex_England.jpg?width=800",
+      "emoji": "🌿",
+      "available": true
+    },
+    {
+      "name": "Red Wine Braised Lamb Shanks",
+      "category": "Mains",
+      "description": "Fall-off-the-bone shanks in a rich red wine & tomato braise.",
+      "diet": "",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Roasted_Lamb_shank.jpg?width=800",
+      "emoji": "🍷",
+      "available": true
+    },
+    {
+      "name": "Pomegranate Glazed Lamb Chops",
+      "category": "Mains",
+      "description": "Seared chops finished with a pomegranate-molasses glaze & fresh herbs.",
+      "diet": "",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Grilled_Lamb_Loin_Chops-01.jpg?width=800",
+      "emoji": "❤️",
+      "available": true
+    },
+    {
+      "name": "Hickory-Smoked Beef Brisket",
+      "category": "Mains",
+      "description": "Salt-and-pepper bark, smoked low and slow for 14 hours, sliced thick.",
+      "diet": "",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Brisket_and_Beef_Ribs_%2816916390640%29.jpg?width=800",
+      "emoji": "🔥",
+      "available": true
+    },
+    {
+      "name": "Pulled Pork Shoulder",
+      "category": "Mains",
+      "description": "Hickory-smoked, hand-pulled & tossed in our tangy house BBQ sauce.",
+      "diet": "",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Pulled_pork_while_pulling.JPG?width=800",
+      "emoji": "🐖",
+      "available": true
+    },
+    {
+      "name": "St. Louis-Style Smoked Ribs",
+      "category": "Mains",
+      "description": "Dry-rubbed spare ribs, smoked till tender with a sticky sauce glaze.",
+      "diet": "",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Baby_back_ribs_-_hickory_smoked.jpg?width=800",
+      "emoji": "🍖",
+      "available": true
+    },
+    {
+      "name": "Alabama White Sauce Smoked Chicken",
+      "category": "Mains",
+      "description": "Smoked half chickens dunked in tangy, peppery Alabama white sauce.",
+      "diet": "",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Smoked_Chicken_Sandwich.jpg?width=800",
+      "emoji": "🐔",
+      "available": true
+    },
+    {
+      "name": "Smoky BBQ Jackfruit",
+      "category": "Mains",
+      "description": "Pulled jackfruit simmered in house BBQ sauce. All the flavor, no meat.",
+      "diet": "vegan",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Gudeg.jpg?width=800",
+      "emoji": "🌱",
+      "available": true
+    },
+    {
+      "name": "Southern Fried Chicken",
+      "category": "Mains",
+      "description": "Buttermilk-soaked, double-dredged & fried golden and crispy.",
+      "diet": "",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Fried_chicken_-_Arnold_Gatilao.jpg?width=800",
+      "emoji": "🍗",
+      "available": true
+    },
+    {
+      "name": "Smothered Pork Chops",
+      "category": "Mains",
+      "description": "Pan-fried chops smothered in onion gravy, served over rice.",
+      "diet": "",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Pork_chops_served.jpg?width=800",
+      "emoji": "🍳",
+      "available": true
+    },
+    {
+      "name": "Braised Oxtails",
+      "category": "Mains",
+      "description": "Slow-braised with butter beans, allspice & thyme in a rich gravy.",
+      "diet": "",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Slow_Cooker_Oxtail_Stew_with_mashed_potato_and_brussels_sprouts_-_05_01_2020_%2849335421817%29.png?width=800",
+      "emoji": "🍲",
+      "available": true
+    },
+    {
+      "name": "Cornmeal Fried Catfish",
+      "category": "Mains",
+      "description": "Mississippi catfish fillets in seasoned cornmeal, with house tartar sauce.",
+      "diet": "",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Fried_catfish.JPG?width=800",
+      "emoji": "🐟",
+      "available": true
+    },
+    {
       "name": "Grandma Norma's Baked Mac & Cheese",
       "category": "Sides",
       "description": "Five cheeses, baked till bubbly with a golden crust.",
       "diet": "vegetarian",
-      "image": "https://images.unsplash.com/photo-1543339494-b4cd4f7ba686?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Baked_macaroni_and_cheese_-_Rocky_%26_Carlo%27s.jpg?width=800",
       "emoji": "🧀",
       "available": true
     },
@@ -82,7 +200,7 @@
       "category": "Sides",
       "description": "Buttery cornbread, celery, onion & sage. Vegan version available.",
       "diet": "",
-      "image": "https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Stuffing_for_Thanksgiving_Dinner.jpg?width=800",
       "emoji": "🌽",
       "available": true
     },
@@ -91,7 +209,7 @@
       "category": "Sides",
       "description": "Slow-simmered with smoked turkey and a splash of vinegar.",
       "diet": "",
-      "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Turnip_Greens-1.jpg?width=800",
       "emoji": "🥬",
       "available": true
     },
@@ -100,7 +218,7 @@
       "category": "Sides",
       "description": "Simmered with smoked paprika, onion & garlic, no meat needed.",
       "diet": "vegan",
-      "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Sukuma_wiki_kwa_wali.jpg?width=800",
       "emoji": "🌿",
       "available": true
     },
@@ -109,7 +227,7 @@
       "category": "Sides",
       "description": "Brown sugar, cinnamon, nutmeg & toasted marshmallows.",
       "diet": "vegetarian",
-      "image": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Sweet_potato_souffle.jpg?width=800",
       "emoji": "🍠",
       "available": true
     },
@@ -118,7 +236,7 @@
       "category": "Sides",
       "description": "Creamy Yukon golds whipped with roasted garlic.",
       "diet": "vegetarian",
-      "image": "https://images.unsplash.com/photo-1585672840563-f2af2ced55c9?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Mashed_potatoes_butter_chives_food_dinner_cooking.jpg?width=800",
       "emoji": "🥔",
       "available": true
     },
@@ -127,7 +245,7 @@
       "category": "Sides",
       "description": "Fresh green beans, mushroom cream & crispy onions.",
       "diet": "vegetarian",
-      "image": "https://images.unsplash.com/photo-1604908554007-0b3d0f4c1a46?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Green_bean_casserole.jpg?width=800",
       "emoji": "🫛",
       "available": true
     },
@@ -136,7 +254,7 @@
       "category": "Sides",
       "description": "Caramelized with maple, pecans & dried cranberries.",
       "diet": "vegan",
-      "image": "https://images.unsplash.com/photo-1438118907704-7718ee9a191a?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Brussel-sprouts-with-bacon.jpg?width=800",
       "emoji": "🥗",
       "available": true
     },
@@ -145,7 +263,7 @@
       "category": "Sides",
       "description": "Fresh cranberries, orange zest & a touch of ginger.",
       "diet": "vegan",
-      "image": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Cranberry_sauce.jpg?width=800",
       "emoji": "🍒",
       "available": true
     },
@@ -154,8 +272,80 @@
       "category": "Sides",
       "description": "Soft, pillowy rolls brushed with honey butter.",
       "diet": "vegetarian",
-      "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Bread_rolls.jpg?width=800",
       "emoji": "🍞",
+      "available": true
+    },
+    {
+      "name": "Smoked Baked Beans",
+      "category": "Sides",
+      "description": "Slow-cooked under the smoker with brisket ends, molasses & mustard.",
+      "diet": "",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Pulled_pork%2C_baked_beans_and_mac_%26_cheese_from_Peg_Leg_Porker_in_Nashville%2C_TN.jpg?width=800",
+      "emoji": "🫘",
+      "available": true
+    },
+    {
+      "name": "Creamy Southern Coleslaw",
+      "category": "Sides",
+      "description": "Crisp cabbage & carrots in a tangy, lightly sweet dressing.",
+      "diet": "vegetarian",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Bowl%27o%27Coleslaw_modified.jpg?width=800",
+      "emoji": "🥗",
+      "available": true
+    },
+    {
+      "name": "Black-Eyed Peas",
+      "category": "Sides",
+      "description": "Simmered with smoked turkey, onion & a little heat. Good luck guaranteed.",
+      "diet": "",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Black_eyed_peas_%2816167751712%29.jpg?width=800",
+      "emoji": "🫘",
+      "available": true
+    },
+    {
+      "name": "Hoppin' John",
+      "category": "Sides",
+      "description": "Black-eyed peas & rice with the trinity and smoky spices.",
+      "diet": "vegan",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Hoppin-john-bowl.JPG?width=800",
+      "emoji": "🍚",
+      "available": true
+    },
+    {
+      "name": "Fried Okra",
+      "category": "Sides",
+      "description": "Fresh okra in seasoned cornmeal, fried crisp.",
+      "diet": "vegetarian",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/FriedOkra.JPG?width=800",
+      "emoji": "🌶️",
+      "available": true
+    },
+    {
+      "name": "Southern Fried Cabbage",
+      "category": "Sides",
+      "description": "Sautéed with onions, bacon & a pinch of black pepper.",
+      "diet": "",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Stir_Fried_Cabbage_and_Bacon_%E5%9F%B9%E6%A0%B9%E9%AB%98%E4%B8%BD%E8%8F%9C.jpg?width=800",
+      "emoji": "🥬",
+      "available": true
+    },
+    {
+      "name": "Hot Water Cornbread",
+      "category": "Sides",
+      "description": "Crispy-edged cornmeal patties, fried in a cast-iron skillet.",
+      "diet": "vegetarian",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Day_20_-_Hot_Water_Cornbread_%284446223148%29.jpg?width=800",
+      "emoji": "🌽",
+      "available": true
+    },
+    {
+      "name": "Mint & Garlic Roasted Potatoes",
+      "category": "Sides",
+      "description": "Crispy baby potatoes with garlic & fresh mint. Made for lamb.",
+      "diet": "vegan",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Roasted_chicken_and_potatoes.JPG?width=800",
+      "emoji": "🥔",
       "available": true
     },
     {
@@ -163,7 +353,7 @@
       "category": "Desserts",
       "description": "Mom Lisa's recipe, spiced and silky in a flaky crust.",
       "diet": "vegetarian",
-      "image": "https://images.unsplash.com/photo-1574085733277-851d9d856a3a?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Peasant_Pies_Southern_Sweet_Potato_Pie_%2816164619769%29.jpg?width=800",
       "emoji": "🥧",
       "available": true
     },
@@ -172,7 +362,7 @@
       "category": "Desserts",
       "description": "A taste of Chef's Kentucky roots: toasted pecans and bourbon.",
       "diet": "vegetarian",
-      "image": "https://images.unsplash.com/photo-1607920591413-4ec007e70023?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Pecan_pie_slice.jpg?width=800",
       "emoji": "🥃",
       "available": true
     },
@@ -181,7 +371,7 @@
       "category": "Desserts",
       "description": "Our namesake. Layers of red velvet with cream cheese frosting.",
       "diet": "vegetarian",
-      "image": "https://images.unsplash.com/photo-1586788680434-30d324b2d46f?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Homemade_red_velvet_cake.jpg?width=800",
       "emoji": "🎂",
       "available": true
     },
@@ -190,7 +380,7 @@
       "category": "Desserts",
       "description": "Warm peaches, cinnamon & a buttery biscuit topping.",
       "diet": "vegetarian",
-      "image": "https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Peach_Cobbler.jpg?width=800",
       "emoji": "🍑",
       "available": true
     },
@@ -199,7 +389,7 @@
       "category": "Desserts",
       "description": "Spiced apples under an oat-pecan crumble.",
       "diet": "vegan",
-      "image": "https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/01_Mmm..._Apple_Crisp_with_Whipped_Cream.jpg?width=800",
       "emoji": "🍎",
       "available": true
     },
@@ -208,8 +398,26 @@
       "category": "Desserts",
       "description": "Our holiday twist: gingersnaps, custard & bananas.",
       "diet": "vegetarian",
-      "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Classic_Banana_Pudding.jpg?width=800",
       "emoji": "🍌",
+      "available": true
+    },
+    {
+      "name": "Classic Butter Pound Cake",
+      "category": "Desserts",
+      "description": "Dense, buttery & golden, with a vanilla glaze.",
+      "diet": "vegetarian",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Pound_cake%2C_September_2007_%28cropped%29.jpg?width=800",
+      "emoji": "🍰",
+      "available": true
+    },
+    {
+      "name": "Southern Chess Pie",
+      "category": "Desserts",
+      "description": "Silky buttermilk custard with a caramelized top.",
+      "diet": "vegetarian",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Chess_pie.jpg?width=800",
+      "emoji": "🥧",
       "available": true
     },
     {
@@ -217,7 +425,7 @@
       "category": "Drinks",
       "description": "Hot mulled cider with cinnamon, clove & orange.",
       "diet": "vegan",
-      "image": "https://images.unsplash.com/photo-1576867757603-05b134ebc379?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/British_Mulled_Wine_and_Cider.jpeg?width=800",
       "emoji": "🍏",
       "available": true
     },
@@ -226,7 +434,7 @@
       "category": "Drinks",
       "description": "Brewed strong, sweet & served by the gallon.",
       "diet": "vegan",
-      "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Glass_of_Iced_Tea.jpg?width=800",
       "emoji": "🧊",
       "available": true
     },
@@ -235,7 +443,7 @@
       "category": "Drinks",
       "description": "Rich cocoa with peppermint, whipped cream & toppings.",
       "diet": "vegetarian",
-      "image": "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Kakao_mit_Sahne_281104.jpg?width=800",
       "emoji": "☕",
       "available": true
     },
@@ -244,8 +452,17 @@
       "category": "Drinks",
       "description": "Sparkling, festive & non-alcoholic.",
       "diet": "vegan",
-      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=70",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Cranberry_juice_in_a_cup.jpg?width=800",
       "emoji": "🥤",
+      "available": true
+    },
+    {
+      "name": "Fresh-Squeezed Lemonade",
+      "category": "Drinks",
+      "description": "Tart, sweet & made fresh. Ask for it half-and-half with sweet tea.",
+      "diet": "vegan",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Mug_of_Lemonade.jpg?width=800",
+      "emoji": "🍋",
       "available": true
     }
   ],
