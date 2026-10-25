@@ -1,0 +1,369 @@
+{
+  "_how_to_edit": [
+    "Edit text between the quotes. Keep commas between items and no comma after the last item in a list.",
+    "category must match one of the names in 'categories'.",
+    "diet can be \"vegan\", \"vegetarian\", or \"\" (blank for neither).",
+    "Set \"available\": false to hide an item or package without deleting it.",
+    "image can be a full web address or your own file, like \"images/turkey.jpg\". The emoji shows if the image can't load.",
+    "Packages: the guest slider highlights the package whose minGuests to maxGuests range fits. Use 0 and 0 to never auto-highlight."
+  ],
+  "categories": [
+    "Mains",
+    "Sides",
+    "Desserts",
+    "Drinks"
+  ],
+  "items": [
+    {
+      "name": "Herb-Butter Roasted Turkey",
+      "category": "Mains",
+      "description": "Brined overnight, roasted golden with sage, thyme & pan gravy.",
+      "diet": "",
+      "image": "https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🦃",
+      "available": true
+    },
+    {
+      "name": "Bourbon Brown Sugar Glazed Ham",
+      "category": "Mains",
+      "description": "Spiral ham lacquered with Kentucky bourbon, brown sugar & clove.",
+      "diet": "",
+      "image": "https://images.unsplash.com/photo-1606851094291-6efae152bb87?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🍖",
+      "available": true
+    },
+    {
+      "name": "Cajun Fried Turkey",
+      "category": "Mains",
+      "description": "Crispy skin, juicy inside, seasoned with our house Cajun blend.",
+      "diet": "",
+      "image": "https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🔥",
+      "available": true
+    },
+    {
+      "name": "Slow-Braised Beef Short Ribs",
+      "category": "Mains",
+      "description": "Red wine braise with root vegetables. A winter showstopper.",
+      "diet": "",
+      "image": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🥩",
+      "available": true
+    },
+    {
+      "name": "Stuffed Acorn Squash",
+      "category": "Mains",
+      "description": "Wild rice, cranberries, pecans & sage in roasted squash.",
+      "diet": "vegan",
+      "image": "https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🎃",
+      "available": true
+    },
+    {
+      "name": "Mushroom & Lentil Wellington",
+      "category": "Mains",
+      "description": "Flaky puff pastry, savory mushroom-lentil filling, mushroom gravy.",
+      "diet": "vegetarian",
+      "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🍄",
+      "available": true
+    },
+    {
+      "name": "Grandma Norma's Baked Mac & Cheese",
+      "category": "Sides",
+      "description": "Five cheeses, baked till bubbly with a golden crust.",
+      "diet": "vegetarian",
+      "image": "https://images.unsplash.com/photo-1543339494-b4cd4f7ba686?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🧀",
+      "available": true
+    },
+    {
+      "name": "Southern Cornbread Dressing",
+      "category": "Sides",
+      "description": "Buttery cornbread, celery, onion & sage. Vegan version available.",
+      "diet": "",
+      "image": "https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🌽",
+      "available": true
+    },
+    {
+      "name": "Smoked Collard Greens",
+      "category": "Sides",
+      "description": "Slow-simmered with smoked turkey and a splash of vinegar.",
+      "diet": "",
+      "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🥬",
+      "available": true
+    },
+    {
+      "name": "Vegan Smoky Collards",
+      "category": "Sides",
+      "description": "Simmered with smoked paprika, onion & garlic, no meat needed.",
+      "diet": "vegan",
+      "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🌿",
+      "available": true
+    },
+    {
+      "name": "Candied Yams",
+      "category": "Sides",
+      "description": "Brown sugar, cinnamon, nutmeg & toasted marshmallows.",
+      "diet": "vegetarian",
+      "image": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🍠",
+      "available": true
+    },
+    {
+      "name": "Garlic Mashed Potatoes",
+      "category": "Sides",
+      "description": "Creamy Yukon golds whipped with roasted garlic.",
+      "diet": "vegetarian",
+      "image": "https://images.unsplash.com/photo-1585672840563-f2af2ced55c9?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🥔",
+      "available": true
+    },
+    {
+      "name": "Green Bean Casserole",
+      "category": "Sides",
+      "description": "Fresh green beans, mushroom cream & crispy onions.",
+      "diet": "vegetarian",
+      "image": "https://images.unsplash.com/photo-1604908554007-0b3d0f4c1a46?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🫛",
+      "available": true
+    },
+    {
+      "name": "Maple Roasted Brussels Sprouts",
+      "category": "Sides",
+      "description": "Caramelized with maple, pecans & dried cranberries.",
+      "diet": "vegan",
+      "image": "https://images.unsplash.com/photo-1438118907704-7718ee9a191a?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🥗",
+      "available": true
+    },
+    {
+      "name": "Homemade Cranberry Relish",
+      "category": "Sides",
+      "description": "Fresh cranberries, orange zest & a touch of ginger.",
+      "diet": "vegan",
+      "image": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🍒",
+      "available": true
+    },
+    {
+      "name": "Buttermilk Yeast Rolls",
+      "category": "Sides",
+      "description": "Soft, pillowy rolls brushed with honey butter.",
+      "diet": "vegetarian",
+      "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🍞",
+      "available": true
+    },
+    {
+      "name": "Sweet Potato Pie",
+      "category": "Desserts",
+      "description": "Mom Lisa's recipe, spiced and silky in a flaky crust.",
+      "diet": "vegetarian",
+      "image": "https://images.unsplash.com/photo-1574085733277-851d9d856a3a?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🥧",
+      "available": true
+    },
+    {
+      "name": "Kentucky Bourbon Pecan Pie",
+      "category": "Desserts",
+      "description": "A taste of Chef's Kentucky roots: toasted pecans and bourbon.",
+      "diet": "vegetarian",
+      "image": "https://images.unsplash.com/photo-1607920591413-4ec007e70023?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🥃",
+      "available": true
+    },
+    {
+      "name": "Red Velvet Cake",
+      "category": "Desserts",
+      "description": "Our namesake. Layers of red velvet with cream cheese frosting.",
+      "diet": "vegetarian",
+      "image": "https://images.unsplash.com/photo-1586788680434-30d324b2d46f?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🎂",
+      "available": true
+    },
+    {
+      "name": "Peach Cobbler",
+      "category": "Desserts",
+      "description": "Warm peaches, cinnamon & a buttery biscuit topping.",
+      "diet": "vegetarian",
+      "image": "https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🍑",
+      "available": true
+    },
+    {
+      "name": "Vegan Apple Crisp",
+      "category": "Desserts",
+      "description": "Spiced apples under an oat-pecan crumble.",
+      "diet": "vegan",
+      "image": "https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🍎",
+      "available": true
+    },
+    {
+      "name": "Gingerbread Banana Pudding",
+      "category": "Desserts",
+      "description": "Our holiday twist: gingersnaps, custard & bananas.",
+      "diet": "vegetarian",
+      "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🍌",
+      "available": true
+    },
+    {
+      "name": "Spiced Apple Cider",
+      "category": "Drinks",
+      "description": "Hot mulled cider with cinnamon, clove & orange.",
+      "diet": "vegan",
+      "image": "https://images.unsplash.com/photo-1576867757603-05b134ebc379?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🍏",
+      "available": true
+    },
+    {
+      "name": "Southern Sweet Tea",
+      "category": "Drinks",
+      "description": "Brewed strong, sweet & served by the gallon.",
+      "diet": "vegan",
+      "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🧊",
+      "available": true
+    },
+    {
+      "name": "Holiday Hot Cocoa Bar",
+      "category": "Drinks",
+      "description": "Rich cocoa with peppermint, whipped cream & toppings.",
+      "diet": "vegetarian",
+      "image": "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=800&q=70",
+      "emoji": "☕",
+      "available": true
+    },
+    {
+      "name": "Cranberry Ginger Punch",
+      "category": "Drinks",
+      "description": "Sparkling, festive & non-alcoholic.",
+      "diet": "vegan",
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🥤",
+      "available": true
+    }
+  ],
+  "packages": [
+    {
+      "name": "The Cozy Table",
+      "serves": "Family of 4",
+      "minGuests": 4,
+      "maxGuests": 6,
+      "includes": [
+        "Turkey breast or glazed ham",
+        "3 classic sides",
+        "Buttermilk rolls",
+        "1 whole pie"
+      ],
+      "plantBasedOption": "Swap in stuffed acorn squash",
+      "featured": false,
+      "vegan": false,
+      "image": "https://images.unsplash.com/photo-1543339494-b4cd4f7ba686?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🏡",
+      "available": true
+    },
+    {
+      "name": "The Front Porch",
+      "serves": "8–12 guests",
+      "minGuests": 7,
+      "maxGuests": 12,
+      "includes": [
+        "Whole roasted turkey",
+        "4 Southern sides",
+        "Cranberry relish & rolls",
+        "2 desserts",
+        "1 gallon sweet tea"
+      ],
+      "plantBasedOption": "Add a mushroom Wellington",
+      "featured": false,
+      "vegan": false,
+      "image": "https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🍂",
+      "available": true
+    },
+    {
+      "name": "The Family Reunion",
+      "serves": "15–25 guests",
+      "minGuests": 13,
+      "maxGuests": 25,
+      "includes": [
+        "Turkey + bourbon glazed ham",
+        "5 Southern sides",
+        "Cranberry relish & rolls",
+        "3 desserts",
+        "Cider & sweet tea"
+      ],
+      "plantBasedOption": "Dedicated vegan side station",
+      "featured": true,
+      "vegan": false,
+      "image": "https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?auto=format&fit=crop&w=800&q=70",
+      "emoji": "👨‍👩‍👧‍👦",
+      "available": true
+    },
+    {
+      "name": "The Rocket City Gathering",
+      "serves": "30–50 guests",
+      "minGuests": 26,
+      "maxGuests": 50,
+      "includes": [
+        "2 mains of your choice",
+        "6 sides",
+        "Rolls & cornbread",
+        "Dessert table (4 options)",
+        "Drink station",
+        "Disposable serveware"
+      ],
+      "plantBasedOption": "Full plant-based entrée included",
+      "featured": false,
+      "vegan": false,
+      "image": "https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🚀",
+      "available": true
+    },
+    {
+      "name": "The Grand Velvet Celebration",
+      "serves": "60–100 guests",
+      "minGuests": 51,
+      "maxGuests": 100,
+      "includes": [
+        "3 mains incl. carving station",
+        "8 sides",
+        "Bread & salad course",
+        "Full dessert buffet",
+        "Cocoa bar & punch",
+        "On-site service staff"
+      ],
+      "plantBasedOption": "Custom vegan & vegetarian menu",
+      "featured": false,
+      "vegan": false,
+      "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=70",
+      "emoji": "✨",
+      "available": true
+    },
+    {
+      "name": "The Garden Harvest (Plant-Based)",
+      "serves": "4 to 100 guests",
+      "minGuests": 0,
+      "maxGuests": 0,
+      "includes": [
+        "Stuffed squash or lentil Wellington",
+        "Vegan collards & cornbread dressing",
+        "Maple Brussels sprouts",
+        "Cranberry relish",
+        "Vegan apple crisp"
+      ],
+      "plantBasedOption": "100% vegan, scaled to your party",
+      "featured": false,
+      "vegan": true,
+      "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=70",
+      "emoji": "🌱",
+      "available": true
+    }
+  ]
+}
